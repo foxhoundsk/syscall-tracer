@@ -21,6 +21,13 @@ int main(int ac, char **av)
         perror("Error attaching");
         return -1;
     }
+
+    /* if the tracee is still in contexts other than userspace, the imminent
+     * ptrace call against the pid can possibly fail w/ "process not found".
+     * Add a waitpid() to ensure that the tracee is ready to be traced.
+     */
+    waitpid(pid, 0, 0);
+
     printf("Successfully attached pid %d\n", pid);
         
     for (;;) {
