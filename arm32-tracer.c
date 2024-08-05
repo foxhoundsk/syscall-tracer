@@ -105,8 +105,7 @@ int main(int ac, char **av)
             continue;
         }
 
-        printf("%d\n", target_tick);
-        target_tick++;
+        printf("%d\n", target_tick++);
 
         /* same as above */
         if (target_tick != 100) {
