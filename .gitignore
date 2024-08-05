@@ -1,3 +1,5 @@
 tracer
 tracee
 *.swp
+arm32-tracee
+arm32-tracer
